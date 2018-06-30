@@ -20,6 +20,10 @@ class GetJokeAsyncTask extends AsyncTask<Object, Void, String> {
 
     @Override
     protected final String doInBackground(Object... params) {
+
+        mContext = (Context)params[0];
+        mIdlingResource = (SimpleIdlingResource)params[1];
+
         // The IdlingResource is null in production.
         if (mIdlingResource != null) {
             mIdlingResource.setIdleState(false);
@@ -44,9 +48,6 @@ class GetJokeAsyncTask extends AsyncTask<Object, Void, String> {
 
             myApiService = builder.build();
         }
-
-        mContext = (Context)params[0];
-        mIdlingResource = (SimpleIdlingResource)params[1];
 
         try {
             return myApiService.getJoke().execute().getData();
