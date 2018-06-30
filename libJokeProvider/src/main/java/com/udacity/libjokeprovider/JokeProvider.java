@@ -2,6 +2,6 @@ package com.udacity.libjokeprovider;
 
 public class JokeProvider {
     public String getJoke(){
-        return "Fool!";
+        return "This is the worst joke telling app ever!";
     }
 }
